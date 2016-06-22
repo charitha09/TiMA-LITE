@@ -1,0 +1,14 @@
+#page-1{
+	background-color: #99FF00;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+.welcome_logo{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.welcome_logo img{
+	width: 100%;
+	height: 100%;
+}
