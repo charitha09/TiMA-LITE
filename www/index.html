@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!--
-			T!MA lite Version
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-		<div data-role="page" id="page-1"><!-- Welcome Screen -->
-			<div data-role="content">
-				<div class="welcome_logo">
-					<img alt="T!MA" src="images/logo.png">
-				</div>				
-			</div>			
-		</div>
-		<div data-role="page" id="page-2"><!-- Home Page -->
-			<div data-role="header">
-				<h1>Page Title</h1>
-			</div>
-			<div data-role="content">
-				<p>Page content goes here.</p>
-			</div>
-			<div data-role="footer">
-				<h4>Page Footer</h4>
-			</div>
-		</div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="tima" ng-controller="indexController">
+    <ion-pane>
+      <!--div class="bar bar-stable">
+        <button class="button button-icon icon ion-navicon"></button>
+        <div class="h1 title">Header Buttons</div>
+        <button class="button button-clear button-positive">Edit</button>
+      </div-->
+      <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+        <ion-nav-buttons side="right">
+          <button class="button button-clear" ng-click="CreateEventPopup()">
+            <i class="icon ion-compose"></i>
+          </button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+
+      <ion-nav-view></ion-nav-view>
+
+      <!--Tabs-->
+      <script id="templates/tabs.html" type="text/ng-template">
+        <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+          <ion-tab title="Home" icon-off="ion-ios-home-outline" icon-on="ion-ios-home-outline active" href="#/tab/home">
+            <ion-nav-view name="home-tab"></ion-nav-view>
+          </ion-tab>
+
+          <ion-tab title="Events" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar-outline active" href="#/tab/events">
+            <ion-nav-view name="events-tab"></ion-nav-view>
+          </ion-tab>
+
+          <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear-outline active" ui-sref="tabs.Settings">
+            <ion-nav-view name="Settings-tab"></ion-nav-view>
+          </ion-tab>
+
+        </ion-tabs>
+      </script>
+
+
+
+    </ion-pane>
+  </body>
 </html>
