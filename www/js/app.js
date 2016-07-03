@@ -106,10 +106,13 @@ angular.module('tima', ['ionic'])
       title: 'Place new event',
       scope: $scope,
       buttons: [
-        { text: 'Cancel' },
         {
-          text: '<b>Save</b>',
-          type: 'button-positive',
+          text: '',
+          type: 'button button-assertive icon ion-close-round'
+        },
+        {
+          text: '',
+          type: 'button button-balanced icon ion-checkmark-round',
           onTap: function(e) {
             if (!$scope.data.wifi) {
               //don't allow the user to close unless he enters wifi password
